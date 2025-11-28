@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+    Synthrix Studio — Masterpiece Landing Page
+    Built with care for Suvom Kundu, 2025
+  -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SYNTHRIX Studios — Unlocking the Next Level of Gaming</title>
+    <meta name="description" content="SYNTHRIX Studios creates immersive worlds, stories, and experiences for the gamers of tomorrow. Founded in 2025 by Suvom Kundu." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0b0e17;
+            --bg-deep: #070911;
+            --text: #d9e6ff;
+            --muted: #9fb1d9;
+            --accent: #7df9ff;
+            /* electric cyan */
+            --accent-2: #ff4dde;
+            /* neon magenta */
+            --accent-3: #8fff60;
+            /* arcade lime */
+            --card: #101424;
+            --glow: 0 0 25px rgba(125, 249, 255, 0.3), 0 0 55px rgba(255, 77, 222, 0.15);
+            --radius: 18px;
+            --shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            --grid-gap: clamp(18px, 3vw, 28px);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+            background: radial-gradient(1200px 800px at 20% 10%, rgba(125, 249, 255, 0.06), transparent 40%),
+                radial-gradient(900px 900px at 85% 15%, rgba(255, 77, 222, 0.05), transparent 45%),
+                linear-gradient(180deg, var(--bg), var(--bg-deep));
+            color: var(--text);
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            min-height: 100%;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        a:hover {
+            color: var(--accent-2)
+        }
+
+        /* Layout */
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(18px, 4vw, 28px);
+        }
+
+        /* Top Bar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(10px);
+            background: linear-gradient(180deg, rgba(11, 14, 23, 0.7), rgba(11, 14, 23, 0.3));
+            border-bottom: 1px solid rgba(125, 249, 255, 0.12);
+        }
+
+        .nav {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 80px;       /* bigger box */
+  width: 80px;        /* square for balance */
+  border-radius: 18px;
+
+  font-family: Orbitron, sans-serif;
+  font-weight: 900;
+  font-size: 64px;    /* large S */
+  color: var(--accent);
+
+  text-shadow: 0 0 18px rgba(125, 249, 255, 0.8),
+               0 0 36px rgba(255, 77, 222, 0.6);
+
+  box-shadow: var(--glow);
+}
+
+
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            border-radius: 11px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+        }
+
+        .name {
+            font-family: Orbitron, sans-serif;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            font-size: clamp(18px, 2.6vw, 22px);
+            color: var(--text);
+            text-shadow: 0 0 12px rgba(125, 249, 255, 0.15);
+        }
+
+        .tag {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            padding: 10px 14px;
+            border-radius: 12px;
+            color: var(--text);
+            border: 1px solid rgba(125, 249, 255, 0.14);
+            background: rgba(16, 20, 36, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+        }
+
+        .links a:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 77, 222, 0.35);
+            box-shadow: 0 10px 28px rgba(255, 77, 222, 0.15);
+        }
+
+        .cta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            border: 1px solid rgba(125, 249, 255, 0.4);
+            background: linear-gradient(180deg, rgba(125, 249, 255, 0.2), rgba(125, 249, 255, 0.08));
+            color: var(--text);
+            box-shadow: var(--glow);
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1)
+        }
+
+        .btn.magenta {
+            border-color: rgba(255, 77, 222, 0.5);
+            background: linear-gradient(180deg, rgba(255, 77, 222, 0.25), rgba(255, 77, 222, 0.08));
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            padding: clamp(60px, 9vw, 120px) 0 clamp(36px, 5vw, 60px);
+        }
+
+        .grid-hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: var(--grid-gap);
+            align-items: center;
+        }
+
+        @media (max-width: 960px) {
+            .grid-hero {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .title {
+            font-family: Orbitron, sans-serif;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            font-size: clamp(30px, 6vw, 58px);
+            line-height: 1.05;
+            margin: 0 0 16px;
+            color: var(--text);
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: clamp(16px, 2.3vw, 18px);
+            max-width: 65ch;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        /* Showcase */
+        section {
+            padding: clamp(36px, 6vw, 70px) 0;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .h2 {
+            font-family: Orbitron, sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            font-size: clamp(22px, 4vw, 32px);
+            margin: 0;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-gap);
+        }
+
+        @media (max-width: 1100px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width: 720px) {
+            .cards {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(16, 20, 36, 0.85), rgba(16, 20, 36, 0.6));
+            border: 1px solid rgba(125, 249, 255, 0.12);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 77, 222, 0.35);
+            box-shadow: 0 25px 60px rgba(255, 77, 222, 0.18);
+        }
+
+        .card-media {
+            aspect-ratio: 16/9;
+            background:
+                radial-gradient(80% 130% at 20% 30%, rgba(125, 249, 255, 0.25), transparent 60%),
+                radial-gradient(90% 130% at 80% 20%, rgba(255, 77, 222, 0.22), transparent 62%),
+                linear-gradient(135deg, #0f1324, #0b0e17 55%);
+            border-bottom: 1px solid rgba(125, 249, 255, 0.12);
+            position: relative;
+        }
+
+        .scanline {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02) 2px, transparent 2px, transparent 4px);
+            opacity: 0.25;
+            mix-blend-mode: screen;
+        }
+
+        .card-body {
+            padding: 18px
+        }
+
+        .card-title {
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            margin: 0 0 6px;
+            font-size: 18px;
+        }
+
+        .card-desc {
+            color: var(--muted);
+            font-size: 14px;
+            margin: 0 0 14px
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        /* About */
+        .about {
+            display: grid;
+            gap: var(--grid-gap);
+            grid-template-columns: 0.9fr 1.1fr;
+            align-items: start;
+        }
+
+        @media (max-width: 960px) {
+            .about {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .panel {
+            background: linear-gradient(180deg, rgba(16, 20, 36, 0.85), rgba(16, 20, 36, 0.6));
+            border: 1px solid rgba(125, 249, 255, 0.12);
+            border-radius: var(--radius);
+            padding: clamp(18px, 3vw, 28px);
+            box-shadow: var(--shadow);
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--accent);
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+            margin-top: 12px;
+            text-shadow: 0 0 14px rgba(125, 249, 255, 0.18);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            gap: var(--grid-gap);
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 960px) {
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .contact-item {
+            display: grid;
+            gap: 6px;
+        }
+
+        .contact-item strong {
+            letter-spacing: 0.02em
+        }
+
+        .social {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(16, 20, 36, 0.6);
+            border: 1px solid rgba(125, 249, 255, 0.14);
+            transition: transform 0.2s ease, border 0.2s ease;
+        }
+
+        .pill:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 77, 222, 0.35)
+        }
+
+        /* Footer */
+        footer {
+            padding: 36px 0 60px;
+            border-top: 1px solid rgba(125, 249, 255, 0.12);
+            background:
+                radial-gradient(80% 100% at 50% 0%, rgba(255, 77, 222, 0.06), transparent 60%),
+                linear-gradient(180deg, rgba(11, 14, 23, 0.6), rgba(11, 14, 23, 0.9));
+        }
+
+        .foot {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .foot small {
+            color: var(--muted)
+        }
+
+        .foot .sig {
+            font-family: Orbitron, sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: var(--accent-2);
+            text-shadow: 0 0 12px rgba(255, 77, 222, 0.3);
+        }
+
+        /* Micro-interactions */
+        .pulse {
+            animation: pulse 3.2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 0 rgba(125, 249, 255, 0.0))
+            }
+
+            50% {
+                filter: drop-shadow(0 0 12px rgba(125, 249, 255, 0.35))
+            }
+        }
+
+        .glint {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glint::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 0 45%, rgba(255, 255, 255, 0.08) 50%, transparent 55% 100%);
+            transform: translateX(-100%);
+            animation: shine 6s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-120%)
+            }
+
+            55% {
+                transform: translateX(120%)
+            }
+
+            100% {
+                transform: translateX(120%)
+            }
+        }
+
+        /* Anchor targets breathing glow */
+        :target {
+            scroll-margin-top: 90px;
+            animation: glowIn 1.1s ease forwards;
+        }
+
+        @keyframes glowIn {
+            0% {
+                box-shadow: 0 0 0 rgba(125, 249, 255, 0)
+            }
+
+            100% {
+                box-shadow: 0 0 24px rgba(125, 249, 255, 0.25)
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="wrap nav">
+            <div class="brand">
+                <div class="<div class="logo pulse">SYNTHRIX</div>
+
+                <div>
+                    <div class="name">SYNTHRIX</div>
+                    <div class="tag">Unlocking the Next Level of Gaming</div>
+                </div>
+            </div>
+
+            <nav class="links" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="cta">
+                <a class="btn magenta glint" href="https://suvom.itch.io/escape-the-bridge-zombie-survival101" target="_blank" rel="noopener">Play Escape The Bridge</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="wrap grid-hero">
+            <div>
+                <h1 class="title">Unlocking the Next Level of Gaming</h1>
+                <p class="subtitle">
+                    We create immersive worlds, stories, and experiences for the gamers of tomorrow. From action-packed adventures
+                    to horror-filled journeys — we focus on great gameplay & atmosphere.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn magenta" href="https://suvom.itch.io/escape-the-bridge-zombie-survival101" target="_blank" rel="noopener">Play Escape The Bridge</a>
+                    <a class="btn" href="#projects">Explore Projects</a>
+                    <a class="btn" href="#about">About Us</a>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div style="display:grid; gap:14px;">
+                    <div class="h2">Synthrix logo</div>
+                    <div class="card-media" aria-hidden="true">
+                        <div class="scanline"></div>
+                    </div>
+                    <p class="card-desc" style="margin:0">
+                        A bold, neon-marked emblem reflecting Synthwave energy and precision. Swap with your SVG when ready.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="wrap">
+            <div class="section-head">
+                <h2 class="h2">Our projects</h2>
+                <a class="btn" href="https://suvom.itch.io/" target="_blank" rel="noopener">Visit itch.io</a>
+            </div>
+
+            <div class="cards">
+
+                <!-- Escape The Bridge -->
+                <article class="card" id="escape-the-bridge">
+                    <div class="card-media">
+                        <div class="scanline"></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Escape The Bridge</h3>
+                        <p class="card-desc">
+                            A zombie survival experience where every step counts. Tight resource loops, escalating tension, and a
+                            payoff that rewards smart risk-taking. Play now on itch.io.
+                        </p>
+                        <div class="card-actions">
+                            <a class="pill" href="https://suvom.itch.io/escape-the-bridge-zombie-survival101" target="_blank" rel="noopener">
+                                <span>Play now</span>
+                            </a>
+                            <a class="pill" href="#contact">
+                                <span>Request press kit</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Upcoming Slot -->
+                <article class="card">
+                    <div class="card-media">
+                        <div class="scanline"></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Project Neo-Phantom</h3>
+                        <p class="card-desc">
+                            A haunted metro beneath neon city lights. Sound-driven stealth, adaptive AI, and branching micro-stories.
+                            Wishlist and devlog coming soon.
+                        </p>
+                        <div class="card-actions">
+                            <span class="pill"><span>In pre-production</span></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Upcoming Slot -->
+                <article class="card">
+                    <div class="card-media">
+                        <div class="scanline"></div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Arcbreaker: Rift</h3>
+                        <p class="card-desc">
+                            Arcade roguelite with rhythm-infused combat and synthwave boss phases. Procedural arenas — handcrafted feel.
+                        </p>
+                        <div class="card-actions">
+                            <span class="pill"><span>Concept phase</span></span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="wrap about">
+            <div class="panel">
+                <h2 class="h2">About us</h2>
+                <p>
+                    SYNTHRIX Studios is an independent game development studio driven by creativity, passion, and innovation.
+                    Our mission is simple: to craft immersive worlds and unforgettable gaming experiences that inspire players
+                    across the globe.
+                </p>
+                <p>
+                    Founded in 2025, SYNTHRIX brings together young, ambitious developers and storytellers who believe in pushing
+                    boundaries. From action-packed adventures to horror-filled journeys, we focus on games that combine
+                    storytelling, gameplay, and atmosphere in a unique way.
+                </p>
+                <p class="quote">“Your Next Adventure Starts Here — with SYNTHRIX.”</p>
+            </div>
+
+            <div class="panel">
+                <div style="display:grid; gap:10px;">
+                    <h3 class="h2" style="font-size:24px">Founded by Suvom Kundu</h3>
+                    <p class="card-desc" style="font-size:15px">
+                        Creative technologist and studio lead. Synthesizing sharp gameplay loops with memorable branding, worldbuilding,
+                        and rapid iteration.
+                    </p>
+                    <div class="card-actions">
+                        <a class="pill" href="#contact"><span>Collaborate</span></a>
+                        <a class="pill" href="https://suvom.itch.io/" target="_blank" rel="noopener"><span>Portfolio</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="wrap">
+            <div class="section-head">
+                <h2 class="h2">Contact</h2>
+            </div>
+            <div class="panel">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <a href="mailto:kundusuvom65@gmail.com">kundusuvom65@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Discord</strong>
+                        <div class="social">
+                            <a class="pill" href="#" aria-label="Join our Discord">
+                                <span>Join our Discord</span>
+                            </a>
+                            <!-- Replace # with your Discord invite link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="wrap foot">
+            <small>© 2025 SYNTHRIX Studios. All rights reserved.</small>
+            <small class="sig">Built for SYNTHRIX • Khulna | Bangladesh</small>
+        </div>
+    </footer>
+
+    <!-- Optional: Light JS for touch-friendly nav highlight -->
+    <script>
+        // Highlight nav link on scroll
+        (function() {
+            const sections = [...document.querySelectorAll("section[id]")];
+            const links = [...document.querySelectorAll(".links a")];
+            const map = Object.fromEntries(links.map(a => [a.getAttribute("href").replace("#", ""), a]));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        links.forEach(a => a.classList.remove("active"));
+                        const el = map[id];
+                        if (el) {
+                            el.classList.add("active");
+                            el.style.borderColor = "rgba(125, 249, 255, 0.4)";
+                        }
+                    }
+                });
+            }, {
+                rootMargin: "-45% 0px -45% 0px",
+                threshold: 0.01
+            });
+
+            sections.forEach(sec => observer.observe(sec));
+        })();
+    </script>
+</body>
+
+</html>
