@@ -1,2 +1,1 @@
-# SYNTHRIX
-website of synthrix
+
